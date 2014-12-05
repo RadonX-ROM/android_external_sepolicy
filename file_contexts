@@ -222,6 +222,9 @@
 # coredump directory for userdebug/eng devices
 /cores(/.*)?                    u:object_r:coredump_file:s0
 
+# Bootchart data
+/data/bootchart(/.*)?		u:object_r:bootchart_data_file:s0
+
 # Wallpaper file for other users
 /data/system/users/[0-9]+/wallpaper		u:object_r:wallpaper_file:s0
 #############################

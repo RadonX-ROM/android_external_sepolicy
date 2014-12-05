@@ -53,3 +53,11 @@ allow shell debugfs:file r_file_perms;
 
 # allow shell to run dmesg
 allow shell kernel:system syslog_read;
+
+userdebug_or_eng(`
+    # User will creates the start and stop file via adb shell
+    # and read other files created by init process under /data/bootchart
+    # The bootchart feature should not be in user builds
+    allow shell bootchart_data_file:dir rw_dir_perms;
+    allow shell bootchart_data_file:file create_file_perms;
+')
